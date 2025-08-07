@@ -14,27 +14,40 @@
 </head>
 <body>
   <div class="particles" id="particles"></div>
-
+  
   <!-- Мобильное меню -->
   <nav>
-    <div class="nav-links">
-      <button id="menuToggle" aria-label="Открыть меню">
+    <div class="nav-container">
+      <button id="menuToggle" class="menu-toggle" aria-label="Открыть меню">
         <i class="fas fa-bars"></i>
       </button>
-      <ul id="mobileMenu" style="display: none;">
-        <li><a href="#story">Наша история</a></li>
-        <li><a href="#couple">Молодожёны</a></li>
-        <li><a href="#registration-gallery">Регистрация</a></li>
-        <li><a href="#banquet-gallery">Банкет</a></li>
-        <li><a href="#details">Детали</a></li>
-        <li><a href="#map">Как добраться</a></li>
-      </ul>
+      <div class="nav-links">
+        <a href="#story">Наша история</a>
+        <a href="#couple">Молодожёны</a>
+        <a href="#registration-gallery">Регистрация</a>
+        <a href="#banquet-gallery">Банкет</a>
+        <a href="#details">Детали</a>
+        <a href="#map">Как добраться</a>
+      </div>
+      <div id="mobileMenu" class="mobile-menu">
+        <button class="close-menu" aria-label="Закрыть меню">
+          <i class="fas fa-times"></i>
+        </button>
+        <ul>
+          <li><a href="#story">Наша история</a></li>
+          <li><a href="#couple">Молодожёны</a></li>
+          <li><a href="#registration-gallery">Регистрация</a></li>
+          <li><a href="#banquet-gallery">Банкет</a></li>
+          <li><a href="#details">Детали</a></li>
+          <li><a href="#map">Как добраться</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
   <header>
     <div class="hero-content">
-      <h1 class="names">Виктория & Фарит</h1>
+      <h1 class="names">Виктория ♥ Фарит</h1>
       <div class="and">&</div>
       <p class="invitation-text">Приглашаем Вас разделить с нами важный день в нашей жизни!</p>
       
