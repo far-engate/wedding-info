@@ -11,6 +11,8 @@
           async src="//gc.zgo.at/count.js"></script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <style>
     /* Адаптивный стиль для уменьшения футера на мобильных */
@@ -33,6 +35,7 @@
       <div class="nav-links">
         <a href="#story">Наша история</a>
         <a href="#couple">Молодожёны</a>
+        <a href="#moments">Наши моменты</a>
         <a href="#registration-gallery">Регистрация</a>
         <a href="#banquet-gallery">Банкет</a>
         <a href="#details">Детали</a>
@@ -45,6 +48,7 @@
         <ul>
           <li><a href="#story">Наша история</a></li>
           <li><a href="#couple">Молодожёны</a></li>
+          <li><a href="#moments">Наши моменты</a></li>
           <li><a href="#registration-gallery">Регистрация</a></li>
           <li><a href="#banquet-gallery">Банкет</a></li>
           <li><a href="#details">Детали</a></li>
@@ -93,6 +97,73 @@
       </div>
     </div>
   </section>
+  
+  <!-- Карусель с моментами -->
+  <section id="moments">
+    <h2 class="section-title">Наши моменты</h2>
+    <div class="swiper moments-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="moment-card">
+            <img src="images/moments/moment1.jpg" alt="Момент 1">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="moment-card">
+            <img src="images/moments/moment2.jpg" alt="Момент 2">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="moment-card">
+            <img src="images/moments/moment3.jpg" alt="Момент 3">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="moment-card">
+            <img src="images/moments/moment4.jpg" alt="Момент 4">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="moment-card">
+            <img src="images/moments/moment5.jpg" alt="Момент 5">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="moment-card">
+            <img src="images/moments/moment6.jpg" alt="Момент 6">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="moment-card">
+            <img src="images/moments/moment7.jpg" alt="Момент 7">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="moment-card">
+            <img src="images/moments/moment8.jpg" alt="Момент 8">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="moment-card">
+            <img src="images/moments/moment9.jpg" alt="Момент 9">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="moment-card">
+            <img src="images/moments/moment10.jpg" alt="Момент 10">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Навигация (стрелки) -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      
+      <!-- Пагинация (точки) -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+  
   <section id="couple">
     <!-- Заголовок "Молодожёны" удалён -->
     <div class="couple-photos">
@@ -216,6 +287,58 @@
   <audio id="backgroundMusic" loop>
     <source src="audio/wedding-song.mp3" type="audio/mpeg">
   </audio>
+  
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
+  
+  <!-- Инициализация карусели -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const swiper = new Swiper('.moments-swiper', {
+        // Основные параметры
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        
+        // Адаптивность
+        breakpoints: {
+          // when window width >= 640px
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          // when window width >= 768px
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+          // when window width >= 1024px
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+          },
+        },
+        
+        // Навигация
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        
+        // Пагинация
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        
+        // Автопрокрутка
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+      });
+    });
+  </script>
 </body>
 </html>
