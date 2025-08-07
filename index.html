@@ -8,6 +8,10 @@
   <!-- Favicon-->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
+  <!-- GoatCounter счетчик -->
+  <script data-goatcounter="https://far-engate.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
@@ -210,6 +214,27 @@
   <footer>
     <p>Создано с любовью ❤️ | Виктория & Фарит 2025</p>
   </footer>
+
+  <footer>
+  <p>Создано с любовью ❤️ | Виктория & Фарит 2025</p>
+  <p id="goatcounter">Загрузка...</p>
+  </footer>
+
+  <script>
+    // Получаем количество просмотров через GoatCounter API
+    fetch('https://far-engate.goatcounter.com/api/v0/stats?site=1d4dhhg6t3py321nqchlbj2mxphvoc25l5rh9z1ohdd3onx3ooc&from=2020-01-01&group=day&fields=visits')
+      .then(response => response.json())
+      .then(data => {
+        if (data && data.stats) {
+          const totalVisits = data.stats.reduce((sum, day) => sum + day.visits, 0);
+          document.getElementById('goatcounter').textContent = `Посещений: ${totalVisits}`;
+        }
+      })
+      .catch(err => {
+        console.error('Ошибка загрузки статистики:', err);
+        document.getElementById('goatcounter').textContent = 'Посещений: недоступно';
+      });
+  </script>
 
   <!-- Кнопка управления музыкой -->
   <button class="music-control" id="musicBtn">
