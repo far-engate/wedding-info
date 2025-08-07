@@ -117,6 +117,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const menuToggle = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
   const closeMenu = document.querySelector('.close-menu');
+  // Найти все ссылки внутри мобильного меню
+  const mobileMenuLinks = mobileMenu.querySelectorAll('a');
 
   // Открытие меню
   menuToggle.addEventListener('click', function() {
@@ -136,6 +138,14 @@ document.addEventListener('DOMContentLoaded', function() {
       mobileMenu.classList.remove('active');
       document.body.style.overflow = ''; // Разблокируем прокрутку страницы
     }
+  });
+
+  // Закрытие меню при клике на ссылку (эта часть была пропущена)
+  mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = ''; // Разблокируем прокрутку страницы
+    });
   });
 });
 
