@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Свадьба Виктории и Фарита | 03.09.2025</title>
 
-  <!-- Favicon -->
+  <!-- Favicon-->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-  <!-- GoatCounter счётчик -->
-  <script data-goatcounter="https://far-engate.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <!-- GoatCounter счетчик -->
+  <script data-goatcounter="https://far-engate.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -26,6 +27,7 @@
       </button>
       <div class="nav-links">
         <a href="#story">Наша история</a>
+        <a href="#couple">Молодожёны</a>
         <a href="#registration-gallery">Регистрация</a>
         <a href="#banquet-gallery">Банкет</a>
         <a href="#details">Детали</a>
@@ -37,6 +39,7 @@
         </button>
         <ul>
           <li><a href="#story">Наша история</a></li>
+          <li><a href="#couple">Молодожёны</a></li>
           <li><a href="#registration-gallery">Регистрация</a></li>
           <li><a href="#banquet-gallery">Банкет</a></li>
           <li><a href="#details">Детали</a></li>
@@ -54,26 +57,22 @@
       <h2 class="wedding-title">Свадьба состоится</h2>
       <p class="date-location">03 сентября 2025 года</p>
       
-      <!-- Таймер с подписью -->
-      <div class="countdown-container">
-        <h2 class="countdown-label-text">до свадьбы осталось:</h2>
-        <div class="countdown" id="countdown">
-          <div class="countdown-item">
-            <div class="countdown-number" id="days">00</div>
-            <div class="countdown-label">дней</div>
-          </div>
-          <div class="countdown-item">
-            <div class="countdown-number" id="hours">00</div>
-            <div class="countdown-label">часов</div>
-          </div>
-          <div class="countdown-item">
-            <div class="countdown-number" id="minutes">00</div>
-            <div class="countdown-label">минут</div>
-          </div>
-          <div class="countdown-item">
-            <div class="countdown-number" id="seconds">00</div>
-            <div class="countdown-label">секунд</div>
-          </div>
+      <div class="countdown" id="countdown">
+        <div class="countdown-item">
+          <div class="countdown-number" id="days">00</div>
+          <div class="countdown-label">дней</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="hours">00</div>
+          <div class="countdown-label">часов</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="minutes">00</div>
+          <div class="countdown-label">минут</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="seconds">00</div>
+          <div class="countdown-label">секунд</div>
         </div>
       </div>
     </div>
@@ -83,17 +82,33 @@
     </div>
   </header>
 
-  <!-- Объединённая секция: Наша история + фото молодожёнов -->
   <section id="story">
     <h2 class="section-title">Наша история</h2>
-    <div class="story-merged">
-      <div class="story-photo-grid">
-        <img src="images/victoria.jpg" alt="Виктория" class="story-img bride">
-        <img src="images/farit.jpg" alt="Фарит" class="story-img groom">
-      </div>
+    <div class="story-content">
       <div class="story-text">
         <p>Три года назад мы встретились на вечеринке в 2022 году — и с того самого мгновения наша жизнь наполнилась радостью, любовью и вдохновением. Теперь мы с трепетом готовы сделать важнейший шаг — создать свою семью.</p>
-        <p>Этот день будет наполнен <span class="highlight">любовью</span>, эмоциями, которые мы сохраним навсегда. Спасибо, что будете с нами в этот особенный момент.</p>
+        <p>Этот день будет наполнен <span class="highlight">любовью</span> , эмоциями, которые мы сохраним навсегда. Спасибо, что будете с нами в этот особенный момент.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="couple">
+    <h2 class="section-title">Молодожёны</h2>
+    <div class="couple-photos">
+      <div class="couple-member">
+        <div class="photo-container">
+          <img src="images/victoria.jpg" alt="Виктория">
+        </div>
+        <h3 class="member-name"><span class="highlight">Виктория</span></h3>
+        <p class="member-description">Люблю читать, гулять босиком по траве и смотреть на закаты.</p>
+      </div>
+      
+      <div class="couple-member">
+        <div class="photo-container">
+          <img src="images/farit.jpg" alt="Фарит">
+        </div>
+        <h3 class="member-name"><span class="blue-text">Фарит</span></h3>
+        <p class="member-description">Обожаю бадминтон, играть на гитаре и смеяться с Викой.</p>
       </div>
     </div>
   </section>
@@ -140,7 +155,7 @@
     </div>
   </section>
 
-  <section id="registration-gallery">
+ <section id="registration-gallery">
     <h2 class="section-title">Фото места регистрации</h2>
     <div class="gallery">
       <div class="gallery-item">
@@ -184,7 +199,7 @@
   
   <section id="map" class="map-section">
     <h2 class="section-title">Где встречаемся?</h2>
-    <p class="map-description">
+    <p style="color: #8a6d60; margin-bottom: 20px; font-size: 1.1rem;">
       На карте указаны: <strong>место регистрации брака</strong> и <strong>банкетный зал</strong>
     </p>
     <div class="map-container">
@@ -197,7 +212,7 @@
   </section>
 
   <footer>
-    <p>Создано с любовью ❤️ | Виктория & Фарит 2025</p>
+  <p>Создано с любовью ❤️ | Виктория & Фарит 2025</p>
   </footer>
 
   <!-- Кнопка управления музыкой -->
