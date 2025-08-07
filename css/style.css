@@ -414,6 +414,10 @@ section {
   color: var(--primary-pink);
   font-weight: 600;
 }
+.blue-text {
+  color: #1e90ff
+  font-weight: 600;
+}
 
 /* Новые стили для галереи с соотношением 16:9 */
 .gallery {
