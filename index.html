@@ -4,21 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Свадьба Виктории и Фарита | 03.09.2025</title>
-
   <!-- Favicon-->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-
   <!-- GoatCounter счетчик -->
   <script data-goatcounter="https://far-engate.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
-
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* Адаптивный стиль для уменьшения футера на мобильных */
+    @media (max-width: 768px) {
+      footer {
+        font-size: 0.9rem;
+        padding: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="particles" id="particles"></div>
-  
   <!-- Мобильное меню -->
   <nav>
     <div class="nav-container">
@@ -48,15 +53,14 @@
       </div>
     </div>
   </nav>
-
   <header>
     <div class="hero-content">
       <h1 class="names">Виктория ❤️ Фарит</h1>
       <p class="invitation-text">Приглашаем Вас разделить с нами важный день в нашей жизни!</p>
-      
       <h2 class="wedding-title">Свадьба состоится</h2>
       <p class="date-location">03 сентября 2025 года</p>
-      
+      <!-- Текст перед таймером -->
+      <p class="countdown-label-main">до свадьбы осталось:</p>
       <div class="countdown" id="countdown">
         <div class="countdown-item">
           <div class="countdown-number" id="days">00</div>
@@ -76,24 +80,21 @@
         </div>
       </div>
     </div>
-    
     <div class="scroll-down">
       <i class="fas fa-chevron-down"></i>
     </div>
   </header>
-
   <section id="story">
     <h2 class="section-title">Наша история</h2>
     <div class="story-content">
       <div class="story-text">
         <p>Три года назад мы встретились на вечеринке в 2022 году — и с того самого мгновения наша жизнь наполнилась радостью, любовью и вдохновением. Теперь мы с трепетом готовы сделать важнейший шаг — создать свою семью.</p>
-        <p>Этот день будет наполнен <span class="highlight">любовью</span> , эмоциями, которые мы сохраним навсегда. Спасибо, что будете с нами в этот особенный момент.</p>
+        <p>Этот день будет наполнен <span class="highlight">любовью</span>, эмоциями, которые мы сохраним навсегда. Спасибо, что будете с нами в этот особенный момент.</p>
       </div>
     </div>
   </section>
-
   <section id="couple">
-    <h2 class="section-title">Молодожёны</h2>
+    <!-- Заголовок "Молодожёны" удалён -->
     <div class="couple-photos">
       <div class="couple-member">
         <div class="photo-container">
@@ -102,9 +103,9 @@
         <h3 class="member-name"><span class="highlight">Виктория</span></h3>
         <p class="member-description">Люблю читать, гулять босиком по траве и смотреть на закаты.</p>
       </div>
-      
       <div class="couple-member">
-        <div class="photo-container">
+        <!-- Добавлен класс для синей рамки -->
+        <div class="photo-container blue-border">
           <img src="images/farit.jpg" alt="Фарит">
         </div>
         <h3 class="member-name"><span class="blue-text">Фарит</span></h3>
@@ -112,7 +113,6 @@
       </div>
     </div>
   </section>
-
   <section id="details">
     <h2 class="section-title">Детали свадьбы</h2>
     <div class="details-grid">
@@ -125,7 +125,6 @@
         <p>Регистрация в 11:20</p>
         <p>Банкет в 13:00</p>
       </div>
-      
       <div class="detail-card">
         <div class="detail-icon">
           <i class="fas fa-map-marker-alt"></i>
@@ -134,7 +133,6 @@
         <p>ЗАГС Кировского района</p>
         <p>ул. Болотникова, 35А, Казань</p>
       </div>
-      
       <div class="detail-card">
         <div class="detail-icon">
           <i class="fas fa-utensils"></i>
@@ -143,7 +141,6 @@
         <p>Весна. Банкетный зал</p>
         <p>ул. Хасана Туфана, 25, Казань</p>
       </div>
-      
       <div class="detail-card">
         <div class="detail-icon">
           <i class="fas fa-music"></i>
@@ -154,8 +151,7 @@
       </div>
     </div>
   </section>
-
- <section id="registration-gallery">
+  <section id="registration-gallery">
     <h2 class="section-title">Фото места регистрации</h2>
     <div class="gallery">
       <div class="gallery-item">
@@ -175,7 +171,6 @@
       </div>
     </div>
   </section>
-
   <section id="banquet-gallery">
     <h2 class="section-title">Фото банкетного зала</h2>
     <div class="gallery">
@@ -196,10 +191,10 @@
       </div>
     </div>
   </section>
-  
   <section id="map" class="map-section">
+    <!-- Центрированный текст на карте -->
     <h2 class="section-title">Где встречаемся?</h2>
-    <p style="color: #8a6d60; margin-bottom: 20px; font-size: 1.1rem;">
+    <p style="color: #8a6d60; margin-bottom: 20px; font-size: 1.1rem; text-align: center;">
       На карте указаны: <strong>место регистрации брака</strong> и <strong>банкетный зал</strong>
     </p>
     <div class="map-container">
@@ -210,21 +205,17 @@
       </div>
     </div>
   </section>
-
   <footer>
-  <p>Создано с любовью ❤️ | Виктория & Фарит 2025</p>
+    <p>Создано с любовью ❤️ | Виктория & Фарит 2025</p>
   </footer>
-
   <!-- Кнопка управления музыкой -->
   <button class="music-control" id="musicBtn">
     <i class="fas fa-music"></i>
   </button>
-
   <!-- Аудио элемент -->
   <audio id="backgroundMusic" loop>
     <source src="audio/wedding-song.mp3" type="audio/mpeg">
   </audio>
-
   <script src="js/script.js"></script>
 </body>
 </html>
