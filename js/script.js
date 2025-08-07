@@ -68,8 +68,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Анимация при скролле
 function animateOnScroll() {
-  // Обновлённые селекторы: убрали .couple-member, добавили новые блоки
-  const elements = document.querySelectorAll('.detail-card, .gallery-item, .story-text, .map-container, .story-merged');
+  const elements = document.querySelectorAll('.detail-card, .gallery-item, .story-text, .couple-member, .map-container');
   
   elements.forEach(element => {
     const elementPosition = element.getBoundingClientRect().top;
@@ -99,7 +98,12 @@ musicBtn.addEventListener('click', function() {
   }
 });
 
-// Остановка музыки при уходе с вкладки
+// Остановка музыки при закрытии вкладки/браузера
+window.addEventListener('beforeunload', function() {
+  audio.pause();
+  isPlaying = false;
+});
+
 window.addEventListener('blur', function() {
   if (isPlaying) {
     audio.pause();
@@ -108,43 +112,39 @@ window.addEventListener('blur', function() {
   }
 });
 
-// Восстановление состояния кнопки при возврате (опционально)
-window.addEventListener('focus', function() {
-  // Можно добавить поведение при возврате, но обычно не нужно
-});
-
 // Функционал мобильного меню
 document.addEventListener('DOMContentLoaded', function() {
   const menuToggle = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
   const closeMenu = document.querySelector('.close-menu');
+  // Найти все ссылки внутри мобильного меню
   const mobileMenuLinks = mobileMenu.querySelectorAll('a');
 
   // Открытие меню
   menuToggle.addEventListener('click', function() {
     mobileMenu.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden'; // Блокируем прокрутку страницы
   });
 
-  // Закрытие меню крестиком
+  // Закрытие меню через кнопку закрытия
   closeMenu.addEventListener('click', function() {
     mobileMenu.classList.remove('active');
-    document.body.style.overflow = '';
+    document.body.style.overflow = ''; // Разблокируем прокрутку страницы
   });
 
-  // Закрытие меню кликом вне области
+  // Закрытие меню при клике вне его области
   mobileMenu.addEventListener('click', function(e) {
     if (e.target === mobileMenu) {
       mobileMenu.classList.remove('active');
-      document.body.style.overflow = '';
+      document.body.style.overflow = ''; // Разблокируем прокрутку страницы
     }
   });
 
-  // Закрытие меню при клике на ссылку
+  // Закрытие меню при клике на ссылку (эта часть была пропущена)
   mobileMenuLinks.forEach(link => {
     link.addEventListener('click', function() {
       mobileMenu.classList.remove('active');
-      document.body.style.overflow = '';
+      document.body.style.overflow = ''; // Разблокируем прокрутку страницы
     });
   });
 });
@@ -155,13 +155,12 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCountdown();
   
   // Настройка анимаций для элементов
-  const animatedElements = document.querySelectorAll('.detail-card, .gallery-item, .story-text, .map-container, .story-merged');
-  animatedElements.forEach(el => {
+  document.querySelectorAll('.detail-card, .gallery-item, .story-text, .couple-member, .map-container').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   });
   
   window.addEventListener('scroll', animateOnScroll);
-  animateOnScroll(); // Проверка при загрузке
+  animateOnScroll(); // Проверить элементы при загрузке
 });
