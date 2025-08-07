@@ -66,12 +66,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Добавляем функционал для мобильного меню
-document.getElementById('menuToggle').addEventListener('click', function() {
-  const mobileMenu = document.getElementById('mobileMenu');
-  mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
-});
-
 // Анимация при скролле
 function animateOnScroll() {
   const elements = document.querySelectorAll('.detail-card, .gallery-item, .story-text, .couple-member, .map-container');
@@ -116,6 +110,42 @@ window.addEventListener('blur', function() {
     musicBtn.innerHTML = '<i class="fas fa-music"></i>';
     isPlaying = false;
   }
+});
+
+// Функционал мобильного меню
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const closeMenu = document.querySelector('.close-menu');
+  const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+  // Открытие меню
+  menuToggle.addEventListener('click', function() {
+    mobileMenu.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Блокируем прокрутку страницы
+  });
+
+  // Закрытие меню через кнопку закрытия
+  closeMenu.addEventListener('click', function() {
+    mobileMenu.classList.remove('active');
+    document.body.style.overflow = ''; // Разблокируем прокрутку страницы
+  });
+
+  // Закрытие меню при клике на ссылку
+  mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = ''; // Разблокируем прокрутку страницы
+    });
+  });
+
+  // Закрытие меню при клике вне его области
+  mobileMenu.addEventListener('click', function(e) {
+    if (e.target === mobileMenu) {
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = ''; // Разблокируем прокрутку страницы
+    }
+  });
 });
 
 // Инициализация
