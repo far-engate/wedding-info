@@ -66,6 +66,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// Добавляем функционал для мобильного меню
+document.getElementById('menuToggle').addEventListener('click', function() {
+  const mobileMenu = document.getElementById('mobileMenu');
+  mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+});
+
 // Анимация при скролле
 function animateOnScroll() {
   const elements = document.querySelectorAll('.detail-card, .gallery-item, .story-text, .couple-member, .map-container');
