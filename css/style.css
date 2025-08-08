@@ -970,3 +970,34 @@ footer p {
 .music-control.playing i{
   animation: spin 2s linear infinite;
 }
+
+/* ---------- Галерея: 2-колонки и центрирование «одинокого» фото ---------- */
+@media (min-width: 992px){
+  #registration-gallery .gallery,
+  #banquet-gallery      .gallery{
+    /* строго две колонки — крупнее кадры */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;                        /* чуть больше «воздуха» */
+    justify-content: center;          /* вся сетка по центру секции */
+  }
+
+  /* если последний элемент единственный в ряду — растягиваем по центру */
+  .gallery-item:nth-last-child(1):nth-child(odd){
+    grid-column: 1 / -1;              /* занять сразу две колонки */
+    justify-self: center;             /* а сам блок по центру трека */
+    max-width: 70%;                   /* не на всю ширину, выглядеть аккуратней */
+  }
+}
+
+/* базовое состояние – скрыты и немного ниже */
+.gallery-item{
+  opacity: 0;
+  transform: translateY(60px) scale(.95);
+  transition: opacity .6s ease, transform .6s cubic-bezier(.21,.7,.42,1);
+}
+
+/* когда класс .show добавлен → плавно проявляемся */
+.gallery-item.show{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
