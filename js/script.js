@@ -112,57 +112,6 @@ window.addEventListener('blur', function() {
   }
 });
 
-// Функционал мобильного меню
-document.addEventListener('DOMContentLoaded', function() {
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const closeMenu = document.querySelector('.close-menu');
-  // Найти все ссылки внутри мобильного меню
-  const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-  
-  // Функция для открытия меню
-  function openMenu() {
-    mobileMenu.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Блокируем прокрутку страницы
-    // Меняем иконку на крестик
-    menuToggle.innerHTML = '<i class="fas fa-times"></i>';
-    menuToggle.setAttribute('aria-label', 'Закрыть меню');
-  }
-  
-  // Функция для закрытия меню
-  function closeMenuFunc() {
-    mobileMenu.classList.remove('active');
-    document.body.style.overflow = ''; // Разблокируем прокрутку страницы
-    // Возвращаем иконку бургера
-    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-    menuToggle.setAttribute('aria-label', 'Открыть меню');
-  }
-  
-  // Открытие меню
-  menuToggle.addEventListener('click', function() {
-    if (mobileMenu.classList.contains('active')) {
-      closeMenuFunc();
-    } else {
-      openMenu();
-    }
-  });
-  
-  // Закрытие меню через кнопку закрытия
-  closeMenu.addEventListener('click', closeMenuFunc);
-  
-  // Закрытие меню при клике вне его области
-  mobileMenu.addEventListener('click', function(e) {
-    if (e.target === mobileMenu) {
-      closeMenuFunc();
-    }
-  });
-  
-  // Закрытие меню при клике на ссылку
-  mobileMenuLinks.forEach(link => {
-    link.addEventListener('click', closeMenuFunc);
-  });
-});
-
 // Инициализация
 document.addEventListener('DOMContentLoaded', () => {
   createParticles();
