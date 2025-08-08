@@ -913,3 +913,12 @@ footer p {
   max-width: 800px;             /* читаемая ширина */
   text-align: center;           /* сам текст по центру */
 }
+
+/* эффект плавного выезда */
+.mobile-menu{
+  transform: translateX(-100%);
+  transition: transform .4s ease;
+}
+.mobile-menu.active{
+  transform: translateX(0);
+}
