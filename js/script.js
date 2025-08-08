@@ -130,3 +130,20 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', animateOnScroll);
   animateOnScroll(); // Проверить элементы при загрузке
 });
+
+/* gallery animation */
+document.addEventListener('DOMContentLoaded', () =>{
+  const options   = { threshold: 0.25 };         // срабатываем, когда видно 25 %
+  const observer  = new IntersectionObserver((entries, obs)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');      // включаем анимацию
+        obs.unobserve(entry.target);             // больше не наблюдаем
+      }
+    });
+  }, options);
+
+  document.querySelectorAll('.gallery-item')
+          .forEach(item => observer.observe(item));
+});
+
