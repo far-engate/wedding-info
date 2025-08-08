@@ -20,7 +20,7 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  padding-top: 70px; /* Отступ для фиксированной шапки */
+  padding-top: 10px; /* Отступ для фиксированной шапки */
 }
 .particles {
   position: fixed;
@@ -674,10 +674,10 @@ footer p {
   /* Уменьшаем футер в мобильной версии */
   footer {
     padding: 25px 15px;
-    font-size: 0.85rem;
+    font-size: 0.6rem;
   }
   footer p {
-    font-size: 0.9rem;
+    font-size: 0.65rem;
   }
   
   /* Стили для карусели на мобильных */
