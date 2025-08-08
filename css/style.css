@@ -669,7 +669,7 @@ footer p {
     font-size: 1.3rem;
   }
   #yandex-map {
-    height: 300px;
+    height: 60vh;
   }
   /* Уменьшаем футер в мобильной версии */
   footer {
@@ -896,4 +896,17 @@ footer p {
 }
 @media (min-width:1200px){
   .moment-card{aspect-ratio:4/5;}    /* ещё шире на больших экранах */
+}
+
+/* --- Центрируем текст блока "Наша история" --- */
+#story .story-content{
+  /* вместо двух колонок – одна, плюс центрирование */
+  display: grid;
+  grid-template-columns: 1fr;   /* убрали пустую вторую колонку */
+  justify-items: center;        /* центр по горизонтали */
+}
+
+#story .story-text{
+  max-width: 800px;             /* читаемая ширина */
+  text-align: center;           /* сам текст по центру */
 }
