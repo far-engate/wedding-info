@@ -240,6 +240,7 @@ header {
   padding: 20px;
   width: 100%;
   text-align: right;
+  z-index: 1002; /* added z-index */
 }
 .mobile-menu {
   display: none;
@@ -266,6 +267,7 @@ header {
   position: absolute;
   top: 20px;
   right: 20px;
+  z-index: 1003;
 }
 .mobile-menu ul {
   list-style: none;
@@ -361,7 +363,7 @@ section {
   font-weight: 600;
 }
 .blue-text {
-  color: #1e90ff;
+  color: #5dc981;
   font-weight: 600;
 }
 /* Новые стили для галереи с соотношением 16:9 */
@@ -463,7 +465,7 @@ section {
 }
 /* Рамка для Фарита — синяя */
 .couple-member:nth-child(2) .photo-container {
-  border: 5px solid #1e90ff;
+  border: 5px solid #5dc981;
 }
 .photo-container img {
   width: 100%;
@@ -602,6 +604,9 @@ footer p {
   }
   .nav-links {
     display: none;
+  }
+  .nav-container {
+    padding: 0;
   }
   .names {
     font-size: 2.5rem;
