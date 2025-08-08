@@ -363,7 +363,7 @@ section {
   font-weight: 600;
 }
 .blue-text {
-  color: #0ea3c4;
+  color: #7fc8f8;
   font-weight: 600;
 }
 /* Новые стили для галереи с соотношением 16:9 */
@@ -461,11 +461,11 @@ section {
 }
 /* Рамка для Виктории — розовая */
 .couple-member:nth-child(1) .photo-container {
-  border: 5px solid #e1c773;
+  border: 5px solid #eedfaf;
 }
 /* Рамка для Фарита — синяя */
 .couple-member:nth-child(2) .photo-container {
-  border: 5px solid #e1c773;
+  border: 5px solid #eedfaf;
 }
 .photo-container img {
   width: 100%;
