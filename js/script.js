@@ -119,33 +119,47 @@ document.addEventListener('DOMContentLoaded', function() {
   const closeMenu = document.querySelector('.close-menu');
   // Найти все ссылки внутри мобильного меню
   const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-
-  // Открытие меню
-  menuToggle.addEventListener('click', function() {
+  
+  // Функция для открытия меню
+  function openMenu() {
     mobileMenu.classList.add('active');
     document.body.style.overflow = 'hidden'; // Блокируем прокрутку страницы
-  });
-
-  // Закрытие меню через кнопку закрытия
-  closeMenu.addEventListener('click', function() {
+    // Меняем иконку на крестик
+    menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+    menuToggle.setAttribute('aria-label', 'Закрыть меню');
+  }
+  
+  // Функция для закрытия меню
+  function closeMenuFunc() {
     mobileMenu.classList.remove('active');
     document.body.style.overflow = ''; // Разблокируем прокрутку страницы
+    // Возвращаем иконку бургера
+    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    menuToggle.setAttribute('aria-label', 'Открыть меню');
+  }
+  
+  // Открытие меню
+  menuToggle.addEventListener('click', function() {
+    if (mobileMenu.classList.contains('active')) {
+      closeMenuFunc();
+    } else {
+      openMenu();
+    }
   });
-
+  
+  // Закрытие меню через кнопку закрытия
+  closeMenu.addEventListener('click', closeMenuFunc);
+  
   // Закрытие меню при клике вне его области
   mobileMenu.addEventListener('click', function(e) {
     if (e.target === mobileMenu) {
-      mobileMenu.classList.remove('active');
-      document.body.style.overflow = ''; // Разблокируем прокрутку страницы
+      closeMenuFunc();
     }
   });
-
-  // Закрытие меню при клике на ссылку (эта часть была пропущена)
+  
+  // Закрытие меню при клике на ссылку
   mobileMenuLinks.forEach(link => {
-    link.addEventListener('click', function() {
-      mobileMenu.classList.remove('active');
-      document.body.style.overflow = ''; // Разблокируем прокрутку страницы
-    });
+    link.addEventListener('click', closeMenuFunc);
   });
 });
 
