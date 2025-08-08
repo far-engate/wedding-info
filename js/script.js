@@ -82,21 +82,24 @@ function animateOnScroll() {
 }
 
 // Управление музыкой
-let audio = document.getElementById('backgroundMusic');
-let musicBtn = document.getElementById('musicBtn');
+let audio     = document.getElementById('backgroundMusic');
+let musicBtn  = document.getElementById('musicBtn');
 let isPlaying = false;
 
-musicBtn.addEventListener('click', function() {
-  if (isPlaying) {
+musicBtn.addEventListener('click', () => {
+  if (isPlaying){                       // ▶️ было playing –> ставим паузу
     audio.pause();
     musicBtn.innerHTML = '<i class="fas fa-music"></i>';
+    musicBtn.classList.remove('playing');  // <--  снимем spin
     isPlaying = false;
-  } else {
+  }else{                                // ⏸  было pause –> запускаем
     audio.play().catch(e => console.log('Автовоспроизведение заблокировано:', e));
     musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
+    musicBtn.classList.add('playing');     // <--  добавим spin
     isPlaying = true;
   }
 });
+
 
 // Остановка музыки при закрытии вкладки/браузера
 window.addEventListener('beforeunload', function() {
