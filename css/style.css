@@ -461,11 +461,11 @@ section {
 }
 /* Рамка для Виктории — розовая */
 .couple-member:nth-child(1) .photo-container {
-  border: 5px solid #eedfaf;
+  border: 5px solid #fffaf1;
 }
 /* Рамка для Фарита — синяя */
 .couple-member:nth-child(2) .photo-container {
-  border: 5px solid #eedfaf;
+  border: 5px solid #fffaf1;
 }
 .photo-container img {
   width: 100%;
