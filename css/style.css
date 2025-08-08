@@ -672,12 +672,12 @@ footer p {
     height: 60vh;
   }
   /* Уменьшаем футер в мобильной версии */
-  footer {
-    padding: 10px 10px;
-    font-size: 0.5rem;
+  footer{
+    font-size: clamp(0.9rem, 0.8rem + 0.8vw, 1.1rem); /* адаптивно */
+    padding: 35px 20px;                               /* чуть «воздуха» */
   }
-  footer p {
-    font-size: 0.5rem;
+  footer p{
+    font-size: inherit;   /* одно значение — меньше путаницы */
   }
   
   /* Стили для карусели на мобильных */
