@@ -922,3 +922,51 @@ footer p {
 .mobile-menu.active{
   transform: translateX(0);
 }
+
+@media (min-width: 1200px){
+  #registration-gallery,
+  #banquet-gallery{
+    max-width: 1400px;   /* или 100% – на ваше усмотрение */
+  }
+}
+
+@media (min-width: 992px){               /* только для ПК */
+  #registration-gallery .gallery,
+  #banquet-gallery      .gallery{
+    grid-template-columns: repeat(2, 1fr); /* 2 большие карточки */
+    gap: 40px;                             /* больше «воздуха» */
+  }
+}
+
+@media (min-width: 992px){
+  #registration-gallery .image-wrapper,
+  #banquet-gallery      .image-wrapper{
+    padding-bottom: 66.66%;   /* 3:2 вместо 16:9 */
+  }
+}
+
+/* ---------- Music button animations ---------- */
+
+/* а) «Пинг» вокруг кнопки, пока музыка не играет */
+@keyframes ping {
+  0%   { transform: scale(1);   opacity: .8; }
+  80%  { transform: scale(1.8); opacity: 0; }
+  100% { transform: scale(2);   opacity: 0; }
+}
+.music-control:not(.playing)::after{
+  content:'';
+  position:absolute;
+  inset:0;                       /* заполняем всю кнопку */
+  border-radius:50%;
+  background:rgba(255,255,255,.5);
+  animation: ping 2.5s ease-out infinite;
+  pointer-events:none;           /* чтобы аура не ловила клики */
+}
+
+/* б) вращение иконки, когда музыка играет */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.music-control.playing i{
+  animation: spin 2s linear infinite;
+}
