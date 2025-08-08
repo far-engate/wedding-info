@@ -14,18 +14,39 @@
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-  <style>
-    /* Адаптивный стиль для уменьшения футера на мобильных */
-    @media (max-width: 768px) {
-      footer {
-        font-size: 0.5rem;
-        padding: 10px;
-      }
-    }
-  </style>
 </head>
 <body>
   <div class="particles" id="particles"></div>
+  
+  <!-- Мобильное меню -->
+  <nav>
+    <div class="nav-container">
+      <button id="menuToggle" class="menu-toggle" aria-label="Открыть меню">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="nav-links">
+        <a href="#story">Наша история</a>
+        <a href="#couple">Молодожёны</a>
+        <a href="#registration-gallery">Регистрация</a>
+        <a href="#banquet-gallery">Банкет</a>
+        <a href="#details">Детали</a>
+        <a href="#map">Как добраться</a>
+      </div>
+      <div id="mobileMenu" class="mobile-menu">
+        <button class="close-menu" aria-label="Закрыть меню">
+          <i class="fas fa-times"></i>
+        </button>
+        <ul>
+          <li><a href="#story">Наша история</a></li>
+          <li><a href="#couple">Молодожёны</a></li>
+          <li><a href="#registration-gallery">Регистрация</a></li>
+          <li><a href="#banquet-gallery">Банкет</a></li>
+          <li><a href="#details">Детали</a></li>
+          <li><a href="#map">Как добраться</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   
   <header>
     <div class="hero-content">
