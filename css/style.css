@@ -363,7 +363,7 @@ section {
   font-weight: 600;
 }
 .blue-text {
-  color: #5dc981;
+  color: #95b560;
   font-weight: 600;
 }
 /* Новые стили для галереи с соотношением 16:9 */
@@ -465,7 +465,7 @@ section {
 }
 /* Рамка для Фарита — синяя */
 .couple-member:nth-child(2) .photo-container {
-  border: 5px solid #5dc981;
+  border: 5px solid #95b560;
 }
 .photo-container img {
   width: 100%;
