@@ -673,16 +673,16 @@ footer p {
   }
   /* Уменьшаем футер в мобильной версии */
   footer {
-    padding: 25px 15px;
-    font-size: 0.6rem;
+    padding: 10px 10px;
+    font-size: 0.5rem;
   }
   footer p {
-    font-size: 0.65rem;
+    font-size: 0.5rem;
   }
   
   /* Стили для карусели на мобильных */
   .moment-card {
-    height: 250px;
+    height: auto;
   }
   
   .swiper-button-next,
@@ -748,7 +748,7 @@ footer p {
   
   /* Стили для карусели на маленьких экранах */
   .moment-card {
-    height: 200px;
+    height: auto;
   }
   
   .swiper-button-next,
@@ -865,24 +865,35 @@ footer p {
 /* ===============================================
    3. Картинки целиком, 16:9, без «натяжки» на мобилке
    =============================================== */
+/* ======= Moments carousel ======= */
 .moment-card{
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;   /* 16:9, Responsive */
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  width:100%;
+  /* портретное окно 9:16 по умолчанию */
+  aspect-ratio: 9 / 16;
+  max-height: 90vh;   /* на мобильном почти весь экран */
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  transition:transform .3s ease;
 }
+.moment-card:hover{transform:scale(1.03);}
+
+/* картинка целиком, без обрезки */
 .moment-card img{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;      /* ВСЁ фото видно, без обрезки */
-  background: var(--light-bg);
+  width:100%;
+  height:100%;
+  object-fit:contain;      /* ВСЁ фото видно */
+  background:var(--light-bg);
 }
 
-/* слегка уменьшаем высоту карточек, которые задавались явной высотой */
-@media (min-width: 769px){
-  .moment-card{ height: auto; }      /* desktop теперь тоже по соотношению */
+/* --- desktop: немного шире, чтобы не казалось «узким» --- */
+@media (min-width:768px){
+  .moment-card{aspect-ratio:3/4;}    /* ближе к классическому портрету */
+}
+@media (min-width:1200px){
+  .moment-card{aspect-ratio:4/5;}    /* ещё шире на больших экранах */
 }
