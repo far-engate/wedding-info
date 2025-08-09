@@ -761,22 +761,47 @@ footer p {
     display: none; /* Скрываем стрелки на очень маленьких экранах */
   }
 }
-.scroll-down {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: bounce 2s infinite;
+/* Кнопка scroll down */
+.scroll-down{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:clamp(40px, 7vh, 80px);   /* выше от нижней кромки, особенно на мобилках */
+  z-index:3;
+  width:56px; height:56px;
+  border-radius:50%;
+  background:rgba(255,255,255,.95);
+  backdrop-filter: blur(6px);
+  box-shadow:0 6px 16px rgba(0,0,0,.12);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer;
+  animation:bounce 2s infinite;
 }
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-  40% { transform: translateX(-50%) translateY(-20px); }
-  60% { transform: translateX(-50%) translateY(-10px); }
+.scroll-down::after{
+  content:"";
+  position:absolute; inset:0;
+  border-radius:50%;
+  box-shadow:0 0 0 0 rgba(255,182,193,.45);
+  animation:pulse 2s infinite;
 }
-.scroll-down i {
-  font-size: 2rem;
-  color: var(--primary-pink);
+.scroll-down i{
+  font-size:1.4rem;                /* крупнее */
+  color:var(--primary-pink);
 }
+@keyframes bounce{
+  0%,20%,50%,80%,100%{ transform:translateX(-50%) translateY(0); }
+  40%{ transform:translateX(-50%) translateY(-8px); }
+  60%{ transform:translateX(-50%) translateY(-4px); }
+}
+@keyframes pulse{
+  0% { box-shadow:0 0 0 0 rgba(255,182,193,.45); }
+  70%{ box-shadow:0 0 0 18px rgba(255,182,193,0); }
+  100%{ box-shadow:0 0 0 0 rgba(255,182,193,0); }
+}
+@media (min-width:992px){
+  .scroll-down{ bottom: clamp(30px, 6vh, 70px); } /* на ПК тоже не прилипает к самому низу */
+}
+
 /* Кнопка для музыки */
 .music-control {
   position: fixed;
@@ -1108,5 +1133,19 @@ footer p {
   .names{
     white-space: nowrap;
     letter-spacing: .5px;    /* можно убрать лишние разрывы */
+  }
+}
+
+@media (min-width: 992px){
+  .story-text{
+    font-size: 1.22rem;    /* было 1.1rem */
+    line-height: 1.9;
+  }
+}
+@media (max-width: 768px){
+  .mobile-menu a{
+    font-size: 1.4rem;     /* было 1.2rem */
+    padding: 18px 14px;
+    letter-spacing: .2px;
   }
 }
