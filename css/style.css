@@ -1168,3 +1168,44 @@ footer p {
     line-height: 1.25;    /* плотнее, но читабельно */
   }
 }
+
+/* Наша история — типографика */
+.story-text p{
+  text-align: justify;        /* выравнивание по ширине */
+  text-justify: inter-word;
+  text-indent: 1.2em;         /* красная строка */
+  margin-bottom: 1.1em;       /* равные интервалы между абзацами */
+  hyphens: auto;              /* переносы для lang="ru" */
+  -webkit-hyphens: auto;
+}
+
+/* Крупнее шрифт (ПК) */
+@media (min-width: 992px){
+  .story-text{
+    font-size: 1.25rem;       /* было 1.1rem */
+    line-height: 1.9;
+  }
+}
+
+/* Можно чуть крупнее и на мобилке (по желанию) */
+@media (max-width: 991.98px){
+  .story-text{
+    font-size: 1.15rem;
+  }
+}
+
+/* Мобильный футер: меньше кегль + «безопасная» ширина под кнопку музыки */
+@media (max-width: 768px){
+  footer{ padding: 18px 12px; }
+  footer p{
+    font-size: 0.8rem;                  /* было крупнее */
+    line-height: 1.35;
+    max-width: calc(100% - 90px);       /* 50px кнопка + по 20px её отступов */
+    margin: 0 auto;                     /* центрируем текст внутри меньшей ширины */
+    word-break: break-word;             /* на всякий случай перенос длинных слов */
+  }
+}
+/* совсем узкие телефоны */
+@media (max-width: 420px){
+  footer p{ font-size: 0.75rem; }
+}
