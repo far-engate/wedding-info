@@ -1149,3 +1149,22 @@ footer p {
     letter-spacing: .2px;
   }
 }
+/* не переносить имена на мобильных */
+@media (max-width: 768px){
+  .names{ white-space: nowrap; }
+}
+
+/* на очень узких — ещё компактнее */
+@media (max-width: 420px){
+  .names{ font-size: clamp(1.6rem, 8vw, 2rem); }
+}
+/* компактнее пункты в мобильном меню */
+@media (max-width: 768px){
+  .mobile-menu ul{ padding-top: 48px; }   /* было 60px */
+  .mobile-menu li{ margin-bottom: 10px; } /* было 20px */
+  .mobile-menu a{
+    font-size: 1.06rem;   /* было 1.2rem */
+    padding: 10px 8px;    /* было 15px */
+    line-height: 1.25;    /* плотнее, но читабельно */
+  }
+}
