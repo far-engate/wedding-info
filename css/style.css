@@ -7,6 +7,8 @@
   --light-bg: #fffaf0;
   --text-dark: #5a4a64;
   --text-light: #ffffff;
+  --accent: #ff7aa5;
+  --accent-rgb: 255,122,165;
 }
 * {
   margin: 0;
@@ -953,15 +955,6 @@ footer p {
   80%  { transform: scale(1.8); opacity: 0; }
   100% { transform: scale(2);   opacity: 0; }
 }
-.music-control:not(.playing)::after{
-  content:'';
-  position:absolute;
-  inset:0;                       /* заполняем всю кнопку */
-  border-radius:50%;
-  background:rgba(255,255,255,.5);
-  animation: ping 2.5s ease-out infinite;
-  pointer-events:none;           /* чтобы аура не ловила клики */
-}
 
 /* б) вращение иконки, когда музыка играет */
 @keyframes spin {
@@ -1000,4 +993,27 @@ footer p {
 .gallery-item.show{
   opacity: 1;
   transform: translateY(0) scale(1);
+}
+
+.music-control{ overflow: hidden; } /* чтобы блик не вылезал за края */
+
+.music-control:not(.playing)::before{
+  content:'';
+  position:absolute;
+  inset:-2px;
+  border-radius:50%;
+  background: linear-gradient(120deg,
+              transparent 0%,
+              rgba(255,255,255,.85) 45%,
+              transparent 70%);
+  transform: rotate(25deg) translateX(-160%);
+  animation: sheen 2.2s ease-in-out infinite;
+  pointer-events:none;
+  mix-blend-mode: screen; /* делает блик ярче на цветной кнопке */
+}
+.music-control.playing::before{ content:none; animation:none; }
+
+@keyframes sheen{
+  0%   { transform: rotate(25deg) translateX(-160%); }
+  100% { transform: rotate(25deg) translateX(160%);  }
 }
