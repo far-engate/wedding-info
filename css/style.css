@@ -1017,3 +1017,57 @@ footer p {
   0%   { transform: rotate(25deg) translateX(-160%); }
   100% { transform: rotate(25deg) translateX(160%);  }
 }
+
+/* выключаем всё, когда играет */
+.music-control.playing{ animation: none; }
+.music-control{ will-change: transform, box-shadow; }
+
+/* пока музыка НЕ играет — пульс */
+.music-control:not(.playing){
+  animation: pulseBtn 1.6s ease-in-out infinite;
+}
+
+@keyframes pulseBtn{
+  0%   { transform: scale(1);   box-shadow: 0 8px 26px rgba(var(--accent-rgb), .25); }
+  50%  { transform: scale(1.08); box-shadow: 0 12px 40px rgba(var(--accent-rgb), .45), 0 0 0 10px rgba(var(--accent-rgb), .22); }
+  100% { transform: scale(1);   box-shadow: 0 8px 26px rgba(var(--accent-rgb), .25); }
+}
+
+/* === Mobile sheet-menu: 60% экрана === */
+:root{
+  --mobile-nav-h: 60px;   /* фактическая высота шапки */
+  --sheet-h: 60vh;        /* сделай 50vh, если нужно ровно половину */
+}
+
+@media (max-width: 768px){
+  /* фиксируем высоту шапки, чтобы правильно отступать меню */
+  .nav-container{
+    height: var(--mobile-nav-h);
+    display:flex; align-items:center; justify-content:flex-end;
+  }
+  .menu-toggle{ width:auto; padding:0 20px; } /* чтобы шапка не была огромной */
+
+  /* сама «шторка» */
+  .mobile-menu{
+    top: var(--mobile-nav-h);     /* начинается сразу под шапкой */
+    height: var(--sheet-h);       /* 50–60% экрана */
+    width: 100%;
+    left: 0;
+    position: fixed;
+    overflow-y: auto;             /* список прокручивается внутри */
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    box-shadow: 0 18px 40px rgba(0,0,0,.15);
+
+    /* выезд ВНИЗ вместо «слева» */
+    transform: translateY(-110%);
+    transition: transform .35s ease;
+    /* фон уже задан выше, оставляем как есть */
+  }
+  .mobile-menu.active{
+    transform: translateY(0);
+  }
+
+  /* крестик чуть ближе к краю «шторки» */
+  .close-menu{ top: 12px; right: 16px; }
+}
