@@ -100,6 +100,11 @@ musicBtn.addEventListener('click', () => {
   }
 });
 
+// Плавный скролл по кнопке "вниз"
+document.querySelector('.scroll-down')?.addEventListener('click', e=>{
+  e.preventDefault();
+  document.getElementById('story')?.scrollIntoView({behavior:'smooth', block:'start'});
+});
 
 // Остановка музыки при закрытии вкладки/браузера
 window.addEventListener('beforeunload', function() {
